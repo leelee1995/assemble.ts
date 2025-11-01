@@ -1,49 +1,83 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="lofi">
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Under Construction</title>
-        <link
-            href="https://cdn.jsdelivr.net/npm/daisyui@4.10.5/dist/full.min.css"
-            rel="stylesheet"
-            type="text/css"
-        />
+        <title>Under Construction - Play a Game!</title>
         <script src="https://cdn.tailwindcss.com"></script>
+        <style>
+            /* Custom styles for the game grid and item */
+            .game-hole {
+                width: 100px;
+                height: 100px;
+                background-color: #4a5568; /* Gray-700 for the hole */
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: flex-end;
+                overflow: hidden;
+                cursor: pointer;
+                transition: background-color 0.1s ease;
+            }
+            .game-item {
+                width: 80%;
+                height: 0%; /* Start hidden */
+                background-color: #f6ad55; /* Orange-400 for the "mole" */
+                border-radius: 50% 50% 0 0;
+                transition: height 0.2s ease-out;
+                pointer-events: none; /* Ignore clicks on the item itself */
+            }
+            .game-item.up {
+                height: 80%; /* Show the "mole" */
+            }
+        </style>
     </head>
-    <body>
-        <div class="hero min-h-screen bg-base-200">
-            <div class="hero-content text-center">
-                <div class="max-w-md">
-                    <div class="text-6xl mb-4">👷</div>
-
-                    <h1 class="text-5xl font-bold text-primary">
-                        Website Under Construction
-                    </h1>
-                    <p class="py-6 text-lg">
-                        We're busy polishing up some amazing features! Our new
-                        site is coming soon. Please check back shortly.
-                    </p>
-
-                    <div class="w-full max-w-sm mx-auto my-6">
-                        <progress
-                            class="progress progress-primary w-full"
-                            value="75"
-                            max="100"
-                        ></progress>
-                        <p class="text-sm text-gray-500 mt-2">75% Complete</p>
-                    </div>
-
-                    <p class="mt-8">
-                        Follow our progress on
-                        <a
-                            href="#"
-                            class="link link-hover text-secondary font-semibold"
-                            >Social Media</a
-                        >.
-                    </p>
-                </div>
-            </div>
+    <body
+        class="bg-indigo-900 min-h-screen flex flex-col items-center justify-center p-4"
+    >
+        <div
+            class="text-center mb-10 p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border-2 border-white/20"
+        >
+            <h1
+                class="text-5xl md:text-7xl font-extrabold text-yellow-400 animate-pulse tracking-tight"
+            >
+                🚧 Site Under Construction 🚧
+            </h1>
+            <p class="text-xl md:text-2xl text-white mt-4 font-light">
+                We're building something awesome! In the meantime, kill some
+                time with a quick game.
+            </p>
         </div>
+
+        <div class="bg-gray-800 p-6 rounded-lg shadow-2xl w-full max-w-md">
+            <div
+                class="flex justify-between items-center mb-4 text-white font-bold text-xl"
+            >
+                <span>Score: <span id="score">0</span></span>
+                <span>Time: <span id="timer">30</span>s</span>
+            </div>
+
+            <div
+                id="game-grid"
+                class="grid grid-cols-3 gap-4 p-4 bg-gray-700 rounded-md border-4 border-gray-600"
+            ></div>
+
+            <button
+                id="start-button"
+                class="mt-6 w-full py-3 bg-green-500 text-white font-bold text-lg rounded-lg hover:bg-green-600 transition duration-200"
+            >
+                START GAME
+            </button>
+            <p
+                id="game-message"
+                class="mt-4 text-center text-white text-xl hidden font-semibold"
+            >
+                Time's Up! Final Score: 0
+            </p>
+        </div>
+
+        <script>
+            // Game JavaScript will go here
+        </script>
     </body>
 </html>
