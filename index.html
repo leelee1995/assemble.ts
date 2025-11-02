@@ -1,83 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Under Construction - Play a Game!</title>
-        <script src="https://cdn.tailwindcss.com"></script>
-        <style>
-            /* Custom styles for the game grid and item */
-            .game-hole {
-                width: 100px;
-                height: 100px;
-                background-color: #4a5568; /* Gray-700 for the hole */
-                border-radius: 50%;
-                display: flex;
-                justify-content: center;
-                align-items: flex-end;
-                overflow: hidden;
-                cursor: pointer;
-                transition: background-color 0.1s ease;
-            }
-            .game-item {
-                width: 80%;
-                height: 0%; /* Start hidden */
-                background-color: #f6ad55; /* Orange-400 for the "mole" */
-                border-radius: 50% 50% 0 0;
-                transition: height 0.2s ease-out;
-                pointer-events: none; /* Ignore clicks on the item itself */
-            }
-            .game-item.up {
-                height: 80%; /* Show the "mole" */
-            }
-        </style>
-    </head>
-    <body
-        class="bg-indigo-900 min-h-screen flex flex-col items-center justify-center p-4"
-    >
-        <div
-            class="text-center mb-10 p-8 bg-white/10 backdrop-blur-sm rounded-xl shadow-2xl border-2 border-white/20"
-        >
-            <h1
-                class="text-5xl md:text-7xl font-extrabold text-yellow-400 animate-pulse tracking-tight"
-            >
-                🚧 Site Under Construction 🚧
-            </h1>
-            <p class="text-xl md:text-2xl text-white mt-4 font-light">
-                We're building something awesome! In the meantime, kill some
-                time with a quick game.
-            </p>
-        </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site Under Construction</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom CSS to ensure full screen coverage and a smooth transition effect */
+        .construction-bg {
+            background-color: #f7fafc; /* Tailwind's gray-100 */
+        }
+        .animate-pulse-slow {
+            animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: .5; }
+        }
+    </style>
+</head>
+<body class="construction-bg min-h-screen flex items-center justify-center p-4">
 
-        <div class="bg-gray-800 p-6 rounded-lg shadow-2xl w-full max-w-md">
-            <div
-                class="flex justify-between items-center mb-4 text-white font-bold text-xl"
-            >
-                <span>Score: <span id="score">0</span></span>
-                <span>Time: <span id="timer">30</span>s</span>
+    <div class="max-w-xl w-full bg-white shadow-2xl rounded-xl p-8 md:p-12 text-center transform transition-all duration-500 hover:scale-[1.01]">
+
+        <div class="mb-6">
+            <svg class="w-16 h-16 mx-auto text-yellow-600 animate-pulse-slow" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18 10a8 8 0 10-16 0 8 8 0 0016 0zM12 2v4m-4 4h8m-4 8v4"></path>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 10H7v4h2v-4zM13 10h-2v4h2v-4zM17 10h-2v4h2v-4z"></path>
+            </svg>
             </div>
 
-            <div
-                id="game-grid"
-                class="grid grid-cols-3 gap-4 p-4 bg-gray-700 rounded-md border-4 border-gray-600"
-            ></div>
+        <h1 class="text-4xl md:text-5xl font-extrabold text-gray-800 mb-4 tracking-tight">
+            Pardon Our Dust!
+        </h1>
 
-            <button
-                id="start-button"
-                class="mt-6 w-full py-3 bg-green-500 text-white font-bold text-lg rounded-lg hover:bg-green-600 transition duration-200"
-            >
-                START GAME
-            </button>
-            <p
-                id="game-message"
-                class="mt-4 text-center text-white text-xl hidden font-semibold"
-            >
-                Time's Up! Final Score: 0
-            </p>
+        <p class="text-lg text-gray-600 mb-6">
+            We're currently working hard to bring you a brand new website. We appreciate your patience and promise it will be worth the wait.
+        </p>
+
+        <div class="inline-block bg-yellow-100 text-yellow-800 font-semibold px-4 py-2 rounded-full mb-8 shadow-md">
+            Estimated Launch: **Spring 2024**
         </div>
 
-        <script src="/wack-a-mole.js">
-            // Game JavaScript will go here
-        </script>
-    </body>
+        <div class="border-t pt-6 border-gray-200">
+            <p class="text-md text-gray-700 mb-4 font-medium">
+                Need to get in touch right away?
+            </p>
+            <a href="mailto:contact@yourdomain.com" 
+               class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full transition duration-300 ease-in-out transform hover:-translate-y-0.5 shadow-lg shadow-indigo-500/50">
+                Contact Us
+            </a>
+        </div>
+
+    </div>
+
+</body>
 </html>
